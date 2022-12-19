@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -22,7 +20,6 @@ class HomeController extends Controller
 
     public function index()
     {
-//        dd(Auth::user());
         if (Auth::user()->hasRole('Admin')) {
             $users = User::all();
             return view('home', [
@@ -36,13 +33,5 @@ class HomeController extends Controller
             ];
             return Http::post($redirectLink, $redirectPayload);
         }
-    }
-
-    public function getUserBonuses($id) {
-
-    }
-
-    public function softDeleteUserBonuses($id) {
-
     }
 }

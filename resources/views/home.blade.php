@@ -29,12 +29,12 @@
                                 <tbody>
                                 @foreach($users as $user)
                                     <tr>
-                                        <td >{{$user->id}}</td>
+                                        <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->created_at}}</td>
                                         <td>{{$user->updated_at}}</td>
-                                        <td><button type="button" class="btn btn-sm btn-primary view-details" data-user-id="{{$user->id}}">View details</button></td>
+                                        <td><a href="{{route('details.user_bonuses', $user->id)}}" class="btn btn-sm btn-primary view-details">View details</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -5371,12 +5371,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.view-details').click(function () {
-    var id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('user-id');
-    alert(id);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.remove-bonus').on('click', function () {
+    if (confirm('Are you sure to remove?')) {
+      var row = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents("tr:first"),
+        dataID = row.find(".dataID").html();
+      removeBonus(dataID, row);
+    }
   });
 });
+function removeBonus(id, row) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+    type: 'GET',
+    dataType: "json",
+    async: false,
+    url: '/softDeleteUserBonuses/' + id,
+    success: function success(response) {
+      if (response.success) {
+        row[0].remove();
+      }
+    },
+    error: function error() {}
+  });
+}
 
 /***/ }),
 

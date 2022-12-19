@@ -1,19 +1,20 @@
+## Dependencies
+php 8.1^\
+composer 2.3.10^\
+npm 6.14.13^\
+postgres || mysql
+
 ## Setup
-Create empty database (postgres, mysql)
+Create empty database (postgres or mysql)\
+Example: first_app
 
 Copy .env.example file to .env file\
-Set database credentials
+Set database credentials (mysql/postgres) to created database
 
-Example:\
-DB_CONNECTION=pgsql\
-DB_HOST=127.0.0.1\
-DB_PORT=5432\
-DB_DATABASE=first_app\
-DB_USERNAME=postgres\
-DB_PASSWORD=
+Also add second app link to connection\
+REDIRECT_APP=LINK_TO_APP
 
-Also add second app link\
-REDIRECT_APP=LINK
+Add second database credentials, when second project will be setup. (check .env.example)
 
 ## Run:
 composer i\

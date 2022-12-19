@@ -20,6 +20,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/getUserBonuses/{$id}', ['as' => 'getUserBonuses', 'uses' => 'App\Http\Controllers\HomeController@getUserBonuses']);
-    Route::get('/softDeleteUserBonuses/{$id}', ['as' => 'softDeleteUserBonuses', 'uses' => 'App\Http\Controllers\HomeController@softDeleteUserBonuses']);
+    Route::get('/details/user_bonuses/{id}', ['as' => 'details.user_bonuses', 'uses' => 'App\Http\Controllers\CommunicationController@getUserBonuses']);
+    Route::get('/softDeleteUserBonuses/{id}', ['as' => 'softDeleteUserBonuses', 'uses' => 'App\Http\Controllers\CommunicationController@softDeleteUserBonuses']);
 });
